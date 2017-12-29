@@ -9,9 +9,8 @@ def batch_badge_creator(list)
 end
 
 def assign_rooms(list)
-  list.each_index do |name, index|
-    list[name] = index
-    puts "Hello, #{name}! You'll be assigned to room #{index + 1}!"
+  list.to_enum(:each_with_index).map do |name,index|
+    "Hello, #{name}! You'll be assigned to room #{index + 1}!"
   end
 end
 
